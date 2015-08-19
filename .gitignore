@@ -1,0 +1,9 @@
+.cproject
+.project
+
+*.pyc
+
+
+schematics.egg-info
+build
+dist
