@@ -7,3 +7,12 @@
 schematics.egg-info
 build
 dist
+
+schematics/examples/components/pipe/*.pdf
+schematics/examples/components/pump/*.pdf
+schematics/examples/components/steam_dome/*.pdf
+schematics/examples/edge/*.pdf
+schematics/examples/graph/*.pdf
+schematics/examples/node/*.pdf
+schematics/examples/system/*.pdf
+schematics/examples/tmi/*.pdf
