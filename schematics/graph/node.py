@@ -1,4 +1,3 @@
-import sys
 from copy import deepcopy
 from weakref import WeakValueDictionary
 from matplotlib.patches import Circle

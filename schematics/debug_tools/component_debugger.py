@@ -1,3 +1,5 @@
+from __future__ import print_function
+
 def component_debug_switch(description = None):
   import argparse
   parser = argparse.ArgumentParser(description = description)
@@ -7,4 +9,4 @@ def component_debug_switch(description = None):
 
   if args.debug:
     from schematics import canvas
-    print "Made it here"
+    print("Made it here")

@@ -1,3 +1,4 @@
+from __future__ import print_function
 import sys
 from copy import deepcopy
 import matplotlib.pyplot as plt
@@ -151,7 +152,7 @@ class Graph(Transformation):
     tmp_edge = Edge(nodeA, nodeB)
     for key, edge in self.edges.items():
       if edge == tmp_edge:
-        print 'Warning: Edge', name,'from', nodeA, 'to', nodeB, 'was previously specified.', key,'is being overwritten.'
+        print('Warning: Edge', name,'from', nodeA, 'to', nodeB, 'was previously specified.', key,'is being overwritten.')
         del self.edges[key]
 
 

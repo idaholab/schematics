@@ -1,3 +1,4 @@
+from __future__ import print_function
 import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.collections import PatchCollection
@@ -107,6 +108,8 @@ class Canvas(object):
 
   def _get_label_dimensions(self):
     for i, label in enumerate(self.labels):
+      print(dir(label)) # db
+      print(label.get_window_extent()) # db
       self._labels_pixel_dimensions.append(Rectangle(label.get_window_extent().bounds[2], label.get_window_extent().bounds[3]))
       self._labels_dimensions.append(Rectangle(self._labels_pixel_dimensions[i].width / self._PIXELS_PER_UNIT, self._labels_pixel_dimensions[i].height / self._PIXELS_PER_UNIT))
 
@@ -118,16 +121,16 @@ class Canvas(object):
 
 
   def print_information(self):
-    print 'origin:                  ', self._origin
-    print 'axis [units]:            ', self._axis_size_width, self._axis_size_height
-    print 'axis [pixels]:           ', self._axis_pixel_width, self._axis_pixel_height
-    print 'figure [inches]:         ', self.width, self.height
-    print 'figure [pixels]:         ', self._figure_pixel_width, self._figure_pixel_height
-    print 'pixels per unit:         ', self._PIXELS_PER_UNIT
-    print 'label dimensions [units]: ', [str(dimension) for dimension in self._labels_dimensions]
-    print 'label dimensions [pixels]:', [str(dimension) for dimension in self._labels_pixel_dimensions]
-    print 'patch dimensions [units]: ', [str(dimension) for dimension in self._patches_dimensions]
-    print 'patch dimensions [pixels]:', [str(dimension) for dimension in self._patches_pixel_dimensions]
+    print('origin:                  ', self._origin)
+    print('axis [units]:            ', self._axis_size_width, self._axis_size_height)
+    print('axis [pixels]:           ', self._axis_pixel_width, self._axis_pixel_height)
+    print('figure [inches]:         ', self.width, self.height)
+    print('figure [pixels]:         ', self._figure_pixel_width, self._figure_pixel_height)
+    print('pixels per unit:         ', self._PIXELS_PER_UNIT)
+    print('label dimensions [units]: ', [str(dimension) for dimension in self._labels_dimensions])
+    print('label dimensions [pixels]:', [str(dimension) for dimension in self._labels_pixel_dimensions])
+    print('patch dimensions [units]: ', [str(dimension) for dimension in self._patches_dimensions])
+    print('patch dimensions [pixels]:', [str(dimension) for dimension in self._patches_pixel_dimensions])
 
 
   def _plot_fully_scaled(self):

@@ -1,3 +1,4 @@
+from __future__ import print_function
 import sys
 
 class KwargProcessing(object):
@@ -12,7 +13,7 @@ class KwargProcessing(object):
       if name not in KwargProcessing.all_names:
         KwargProcessing.all_names.append(name)
       else:
-        print 'Warning: "' + name + '" duplicated when defining kwarg processors.'
+        print('Warning: "' + name + '" duplicated when defining kwarg processors.')
 
     if 'pop' in pop:
       self.pop = pop['pop']

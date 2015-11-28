@@ -1,14 +1,14 @@
-import sys
+from __future__ import print_function
 from math import sqrt
 
 def print_points(points):
   '''Prints the values of a list of points'''
-  sys.stdout.write('[')
+  print('[', end='')
   for i, point in enumerate(points):
-    sys.stdout.write(str(point))
+    print(str(point), end='')
     if i != (len(points)-1):
-      sys.stdout.write(', ')
-  print ']'
+      print(', ', end='')
+  print(']')
 
 
 class Point(object):
