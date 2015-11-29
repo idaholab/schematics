@@ -108,10 +108,9 @@ class Canvas(object):
 
   def _get_label_dimensions(self):
     for i, label in enumerate(self.labels):
-      print(dir(label)) # db
-      print(label.get_window_extent()) # db
-      self._labels_pixel_dimensions.append(Rectangle(label.get_window_extent().bounds[2], label.get_window_extent().bounds[3]))
-      self._labels_dimensions.append(Rectangle(self._labels_pixel_dimensions[i].width / self._PIXELS_PER_UNIT, self._labels_pixel_dimensions[i].height / self._PIXELS_PER_UNIT))
+      bb = label.get_window_extent(renderer = self.fig.canvas.renderer)
+      self._labels_pixel_dimensions.append(Rectangle(bb.width, bb.height))
+      self._labels_dimensions.append(Rectangle(bb.width / self._PIXELS_PER_UNIT, bb.height / self._PIXELS_PER_UNIT))
 
 
   def _get_patch_dimensions(self):
@@ -250,12 +249,12 @@ class Canvas(object):
     self._draw_edges()
     self._draw_labels()
     self._plot_tight_scaled()
+    self._get_canvas_dimensions()
 
     plt.show(block = False)
 
-    self._get_canvas_dimensions()
     self._get_label_dimensions()
-    # self._get_patch_dimensions()
+    self._get_patch_dimensions()
 
     self._adjust_labels()
     self._plot_fully_scaled()
