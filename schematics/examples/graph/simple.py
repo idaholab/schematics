@@ -1,3 +1,4 @@
+from __future__ import print_function
 from schematics import ExampleDebugger
 command_line_parser = ExampleDebugger('Pentagon graph test case.')
 command_line_parser.parse()
@@ -30,9 +31,9 @@ GRAPH.connect('E', 'C', name = "IX", ll = 'bottom')
 GRAPH.connect('D', 'E', name = "X", directional = False, ll = 'top')
 
 GRAPH.anchor_graph()
-print 'Nodes are anchored:', GRAPH.anchored
-print GRAPH.general_info(), '\n'
-print GRAPH
+print('Nodes are anchored:', GRAPH.anchored)
+print(GRAPH.general_info(), '\n')
+print(GRAPH)
 
 # plot
 CAN = Canvas(border_thickness = 0.05, grid = True)

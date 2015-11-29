@@ -1,6 +1,6 @@
 from math import pi, sin, cos
-from point import Point
 
+from schematics import Point
 from schematics import process_angle
 from schematics import process_reflect
 

@@ -1,3 +1,4 @@
+from __future__ import print_function
 from schematics import ExampleDebugger
 command_line_parser = ExampleDebugger('Labeled node test case.')
 command_line_parser.parse()
@@ -18,13 +19,13 @@ main.connect('Node 1', 'Node 2', label_location = 'top',    label_angle = 30.0)
 main.connect('Node 2', 'Node 3', label_location = 'top',    label_angle = 30.0)
 main.connect('Node 3', 'Node 0', label_location = 'top',    label_angle = 30.0)
 
-print main.edges
+print(main.edges)
 
 GRAPH = Graph(name = 'graph', graphs = [main], node_line_width = 2.0, node_radius = 0.05)
 GRAPH.anchor_graph()
-print 'Nodes are anchored:', GRAPH.anchored
-print GRAPH.general_info(), '\n'
-print GRAPH
+print('Nodes are anchored:', GRAPH.anchored)
+print(GRAPH.general_info(), '\n')
+print(GRAPH)
 
 CAN = Canvas(border_thickness = 0.05, grid = True)
 CAN.add_graph(GRAPH)

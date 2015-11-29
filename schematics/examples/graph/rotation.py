@@ -1,3 +1,4 @@
+from __future__ import print_function
 from schematics import ExampleDebugger
 command_line_parser = ExampleDebugger('Rotated graph test case.')
 command_line_parser.parse()
@@ -20,9 +21,9 @@ main.connect('C', 'D', name = '3', ll = 'bottom')
 main.connect('D', 'A', name = '4', ll = 'bottom')
 
 main.anchor_graph()
-print 'Nodes are anchored:', main.anchored
-print main.general_info(), '\n'
-print main
+print('Nodes are anchored:', main.anchored)
+print(main.general_info(), '\n')
+print(main)
 
 graphs = []
 displacement = 3.0

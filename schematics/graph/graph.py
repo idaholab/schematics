@@ -18,8 +18,10 @@ class Graph(Transformation):
   graphs = []
 
   def _mangle_dictionary(self, graph, dictionary):
+    tmp_dictionary = OrderedDict()
     for name in dictionary.keys():
-      dictionary[graph.name + ':' + name] = dictionary.pop(name)
+      tmp_dictionary[graph.name + ':' + name] = dictionary[name]
+    return tmp_dictionary
 
 
   def _mangle_list(self, graph, list):
@@ -44,8 +46,8 @@ class Graph(Transformation):
       edge.tail = graph.name + ':' + edge.tail
       edge.head = graph.name + ':' + edge.head
 
-    self._mangle_dictionary(graph, graph.edges)
-    self._mangle_dictionary(graph, graph.nodes)
+    graph.edges = self._mangle_dictionary(graph, graph.edges)
+    graph.nodes = self._mangle_dictionary(graph, graph.nodes)
 
     graph.anchor = graph.name + ':' + graph.anchor
     self._mangle_list(graph, graph.anchored_nodes)
@@ -568,5 +570,7 @@ class Graph(Transformation):
   def __del__(self):
     for subgraph in self.subgraphs:
       subgraph.__del__()
-    if len(Graph.graphs) != 0:
+
+    self.subgraphs = []
+    if self.name in Graph.graphs:
       Graph.graphs.remove(self.name)

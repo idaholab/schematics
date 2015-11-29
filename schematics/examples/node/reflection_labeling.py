@@ -1,3 +1,4 @@
+from __future__ import print_function
 from schematics import ExampleDebugger
 command_line_parser = ExampleDebugger('Reflected node labels.')
 command_line_parser.parse()
@@ -93,9 +94,9 @@ left.add_node(x=-2.0,   y=0.5,
 
 GRAPH = Graph(name = 'graph', graphs = [main, left, right, top, bottom])
 GRAPH.anchor_graph()
-print 'Nodes are anchored:', GRAPH.anchored
-print GRAPH.general_info(), '\n'
-print GRAPH
+print('Nodes are anchored:', GRAPH.anchored)
+print(GRAPH.general_info(), '\n')
+print(GRAPH)
 
 CAN = Canvas(border_thickness = 0.05, grid = True)
 CAN.add_graph(GRAPH)

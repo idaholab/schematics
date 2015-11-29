@@ -4,7 +4,6 @@ from math import pi, sin, cos
 
 from schematics import Transformation
 from schematics import Point
-
 from schematics import process_label_location
 from schematics import process_label_string
 from schematics import process_label_angle

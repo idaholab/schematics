@@ -23,7 +23,7 @@ class ExampleDebugger(argparse.ArgumentParser):
     def run_setup_script(command):
       original_dir = getcwd()
       chdir('../..')
-      call(['python', 'setup.py', command])
+      call([sys.executable, 'setup.py', command])
       chdir(original_dir)
       sys.exit('\nSchematics ' + command + 'ed ... ')
 

@@ -1,3 +1,4 @@
+from __future__ import print_function
 from schematics import ExampleDebugger
 command_line_parser = ExampleDebugger('Display color palettes.')
 command_line_parser.parse()
@@ -9,7 +10,7 @@ from schematics import Component
 
 CAN = Canvas(border_thickness = 0.05, grid = False)
 
-print Component.stats
+print(Component.stats)
 # Reds
 CAN.add_component( Pipe(1.0, 1.0, Point(-3.0, 3.0), face_color = (0.597659, 0.0, 0.0)))
 CAN.add_component( Pipe(1.0, 1.0, Point(-1.5, 3.0), face_color = (0.67578, 0.19531, 0.19531)))
@@ -58,6 +59,6 @@ CAN.add_component( Pipe(1.0, 1.0, Point(1.5, -4.5), face_color = (0.51, 0.38, 0.
 CAN.add_component( Pipe(1.0, 1.0, Point(3.0, -4.5), face_color = (0.58, 0.47, 0.64)))
 CAN.add_component( Pipe(1.0, 1.0, Point(4.5, -4.5), face_color = (0.65, 0.56, 0.70)))
 
-print Component.stats
+print(Component.stats)
 
 CAN.draw(save_file = None, display = True, print_information = False)

@@ -1,3 +1,4 @@
+from __future__ import print_function
 from schematics import ExampleDebugger
 command_line_parser = ExampleDebugger('Reflected graph test case.')
 command_line_parser.parse()
@@ -20,9 +21,9 @@ main.connect('C', 'D', name = '3', ll = 'top', la = 45.0, lp = 1.0)
 main.connect('D', 'A', name = '4', ll = 'top', la = 45.0, lp = 1.0)
 
 main.anchor_graph()
-print 'Nodes are anchored:', main.anchored
-print main.general_info(), '\n'
-print main
+print('Nodes are anchored:', main.anchored)
+print(main.general_info(), '\n')
+print(main)
 
 graphs = []
 graphs.append(main)

@@ -34,7 +34,8 @@ class TestGraph(TestCase):
     return (len(Node._instances), len(Edge._instances), len(Graph.graphs))
 
 
-  def _check_numbers(self, (node, edge, graph), node_inc, edge_inc, graph_inc):
+  def _check_numbers(self, original_numbers, node_inc, edge_inc, graph_inc):
+    (node, edge, graph) = original_numbers
     self.assertEqual(node + node_inc, len(Node._instances))
     self.assertEqual(edge + edge_inc, len(Edge._instances))
     self.assertEqual(graph + graph_inc, len(Graph.graphs))
