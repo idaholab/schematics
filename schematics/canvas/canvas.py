@@ -116,8 +116,9 @@ class Canvas(object):
 
   def _get_patch_dimensions(self):
     for i, patch in enumerate(self.patches):
-      self._patches_dimensions.append(Rectangle(patch.get_extents().bounds[2], patch.get_extents().bounds[3]))
-      self._patches_pixel_dimensions.append(Rectangle(self._patches_dimensions[i].width * self._PIXELS_PER_UNIT, self._patches_dimensions[i].height * self._PIXELS_PER_UNIT))
+      bb = patch.get_window_extent(renderer = self.renderer)
+      self._patches_pixel_dimensions.append(Rectangle(bb.width, bb.height))
+      self._patches_dimensions.append(Rectangle(bb.width / self._PIXELS_PER_UNIT, bb.height / self._PIXELS_PER_UNIT))
 
 
   def print_information(self):
@@ -252,11 +253,7 @@ class Canvas(object):
     self._plot_tight_scaled()
     self._get_canvas_dimensions()
     self._get_label_dimensions()
-
-    plt.show(block = False)
-
     self._get_patch_dimensions()
-
     self._adjust_labels()
     self._plot_fully_scaled()
 
